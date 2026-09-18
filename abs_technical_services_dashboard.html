@@ -1,0 +1,307 @@
+
+<h2 class="sr-only">ABS Global technical services dashboard showing reproductive performance benchmarking, heat stress impact on conception rates, genetic improvement trends, and ROI calculator for a strategic dairy account.</h2>
+<style>
+.db{padding:.75rem 0;font-size:13px}
+.hdr{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#003366;color:#fff;border-radius:10px;padding:13px 18px;margin-bottom:10px}
+.hdr-l h1{font-size:15px;font-weight:500;margin:0 0 2px}
+.hdr-l p{font-size:11px;opacity:.8;margin:0}
+.hdr-r{text-align:right;font-size:11px;opacity:.85;flex-shrink:0;line-height:1.6}
+.hdr-r strong{font-size:13px;font-weight:500;display:block}
+.tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
+.tab{padding:6px 11px;border-radius:var(--radius);cursor:pointer;border:0.5px solid var(--border-strong);background:var(--surface-1);color:var(--text-secondary);font-size:12px}
+.tab.active{background:#003366;color:#fff;border-color:#003366}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.kpi{background:var(--surface-2);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+.kpi-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.kpi-val{font-size:21px;font-weight:500;line-height:1}
+.kpi-sub{font-size:10px;margin-top:3px}
+.grn{color:#1b7a3e}.red{color:#c62828}.amb{color:#b26b00}.blu{color:#185fa5}.neu{color:var(--text-secondary)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.card{background:var(--surface-2);border:0.5px solid var(--border);border-radius:10px;padding:12px}
+.card-full{background:var(--surface-2);border:0.5px solid var(--border);border-radius:10px;padding:12px;margin-bottom:10px}
+.ctitle{font-size:12px;font-weight:500;color:var(--text-primary);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
+.badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:100px}
+.b-grn{background:#e8f5e9;color:#1b5e20}.b-red{background:#fee2e2;color:#991b1b}
+.b-amb{background:#fef3c7;color:#92400e}.b-blu{background:#e0f2fe;color:#075985}
+.sop{border-left:2px solid;padding:8px 10px;margin-top:8px;font-size:11px;border-radius:0 5px 5px 0;line-height:1.5}
+.sop-grn{background:#f0fdf4;border-color:#22c55e;color:#14532d}
+.sop-red{background:#fff0f0;border-color:#ef4444;color:#7f1d1d}
+.sop-amb{background:#fffbeb;border-color:#f59e0b;color:#78350f}
+.sop-blu{background:#e8f0fb;border-color:#2a78d6;color:#0a3a7a}
+.sop-b{font-weight:500;margin-bottom:3px}
+.tbl{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+.tbl th{text-align:left;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);padding:4px 6px;border-bottom:0.5px solid var(--border)}
+.tbl td{padding:5px 6px;border-bottom:0.5px solid var(--border)}
+.sl-label{font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block}
+.sl-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.sl-val{font-size:12px;font-weight:500;color:#003366;min-width:55px}
+.roi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.roi-card{background:var(--surface-2);border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+.roi-val{font-size:20px;font-weight:500;color:#003366;line-height:1.1;margin:3px 0}
+.roi-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.04em}
+.roi-grn{background:#eaf5ea;border-color:#92d192}
+.view{display:none}.view.on{display:block}
+@media(max-width:600px){.grid2,.kpis,.roi-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<div class="db">
+<div class="hdr">
+  <div class="hdr-l">
+    <h1>ABS Global — Technical Services Account Dashboard</h1>
+    <p>Sunrise Farms, Lebanon County, PA · 1,850-cow Holstein · East Region Strategic Account</p>
+  </div>
+  <div class="hdr-r">
+    <strong>Gaurav Dutta, DVM</strong>
+    Technical Services Sr. Specialist<br>ABS Global / Genus · East Region
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showView('v1',this)">Reproductive performance</button>
+  <button class="tab" onclick="showView('v2',this)">Heat stress × conception</button>
+  <button class="tab" onclick="showView('v3',this)">Genetic improvement</button>
+  <button class="tab" onclick="showView('v4',this)">Technical service ROI</button>
+</div>
+
+<!-- VIEW 1: Reproductive performance -->
+<div id="v1" class="view on">
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">21-day pregnancy rate</div><div class="kpi-val grn">24.8%</div><div class="kpi-sub grn">↑ 3.2% vs 12mo ago</div></div>
+    <div class="kpi"><div class="kpi-label">Conception rate (CR)</div><div class="kpi-val amb">32.1%</div><div class="kpi-sub amb">Below ABS benchmark 38%</div></div>
+    <div class="kpi"><div class="kpi-label">Days open</div><div class="kpi-val red">138</div><div class="kpi-sub red">Target ≤ 115 days</div></div>
+    <div class="kpi"><div class="kpi-label">Services per conception</div><div class="kpi-val grn">2.8</div><div class="kpi-sub grn">Within target range</div></div>
+  </div>
+
+  <div class="card-full">
+    <div class="ctitle">
+      Monthly reproductive KPIs — trailing 12 months
+      <span class="badge b-grn">21-day PR improving</span>
+    </div>
+    <div style="position:relative;height:185px"><canvas id="reprChart" role="img" aria-label="Line chart showing pregnancy rate improving from 21% to 24.8% and conception rate fluctuating between 28-36% over 12 months">Pregnancy rate: 21 to 24.8%. Conception rate: variable 28-36%.</canvas></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ctitle">Reproductive performance by pen group</div>
+      <table class="tbl">
+        <tr><th>Group</th><th>DIM</th><th>CR%</th><th>21-day PR</th><th>Status</th></tr>
+        <tr><td>Fresh cow</td><td>0–21</td><td class="red">24</td><td>—</td><td><span class="badge b-red">Monitor</span></td></tr>
+        <tr><td>Early lact.</td><td>22–100</td><td class="amb">31</td><td>22%</td><td><span class="badge b-amb">Review</span></td></tr>
+        <tr><td>Mid lact.</td><td>101–200</td><td class="grn">38</td><td>27%</td><td><span class="badge b-grn">On target</span></td></tr>
+        <tr><td>Repeat breeders</td><td>>150</td><td class="red">18</td><td>15%</td><td><span class="badge b-red">TS action</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ctitle">Technical service observations</div>
+      <div class="sop sop-red"><div class="sop-b">Priority: fresh cow CR below 25%</div>Metabolic stress depressing luteal activity 0–21 DIM. Recommend transition cow protocol audit: DCAD pre-fresh, ketosis monitoring, and delayed voluntary waiting period review.</div>
+      <div class="sop sop-amb" style="margin-top:8px"><div class="sop-b">Repeat breeder programme</div>57 cows >3 services with no conception. Recommend Pre-Synch / Ovsynch audit, progesterone insert protocol for repeat breeders, and selective culture for subclinical endometritis.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW 2: Heat stress × conception -->
+<div id="v2" class="view">
+  <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+    <div class="kpi"><div class="kpi-label">Peak summer THI</div><div class="kpi-val red">82</div><div class="kpi-sub red">Moderate–severe stress</div></div>
+    <div class="kpi"><div class="kpi-label">Summer CR drop</div><div class="kpi-val red">−14%</div><div class="kpi-sub red">July–Sept vs. Jan–Mar</div></div>
+    <div class="kpi"><div class="kpi-label">Est. milk loss</div><div class="kpi-val amb">$118K</div><div class="kpi-sub amb">Annual heat stress cost</div></div>
+  </div>
+  <div class="card-full">
+    <div class="ctitle">
+      THI vs. conception rate — seasonal overlay (Lebanon County, PA)
+      <span class="badge b-red">PA East region: THI>68 June–Sept</span>
+    </div>
+    <div style="position:relative;height:200px"><canvas id="heatChart" role="img" aria-label="Dual-axis chart showing monthly THI peaking at 82 in July-August while conception rate drops from 38% in winter to 24% in summer, confirming inverse heat stress relationship">THI peaks at 82 in summer; CR drops from 38% to 24% during same period.</canvas></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="ctitle">Heat abatement protocol checklist <span class="badge b-amb">In progress</span></div>
+      <table class="tbl">
+        <tr><th>Protocol</th><th>Status</th></tr>
+        <tr><td>Freestall soakers (8-min cycle)</td><td class="grn">Active</td></tr>
+        <tr><td>Holding pen fans + soakers</td><td class="amb">Partial — 2 banks offline</td></tr>
+        <tr><td>Bunk delivery shift (02:00 AM)</td><td class="red">Not implemented</td></tr>
+        <tr><td>Water space ≥ 4 in/cow</td><td class="grn">Compliant</td></tr>
+        <tr><td>Transition cow cooling</td><td class="red">No pre-fresh cooling</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ctitle">Seasonal synchronisation strategy</div>
+      <div class="sop sop-blu"><div class="sop-b">PhD research connection</div>GxE models from Gaurav's UConn research quantified that THI>68 suppresses Holstein conception rate 1.2% per THI unit above threshold — directly applicable to this account's June–September breeding strategy. Projected CR recovery with full cooling: +8–10%.</div>
+      <div class="sop sop-grn" style="margin-top:8px"><div class="sop-b">Technical service recommendation</div>Switch to Double Ovsynch during June–Sept (superior to standard Ovsynch under heat stress). Prioritise pre-fresh cooling installation before July. Monitor oestrus detection efficiency — activity monitors typically show 15–20% detection drop during peak THI.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW 3: Genetic improvement -->
+<div id="v3" class="view">
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Herd TPI average</div><div class="kpi-val blu">2,840</div><div class="kpi-sub grn">↑ 180 pts over 3 years</div></div>
+    <div class="kpi"><div class="kpi-label">Net merit $/cow</div><div class="kpi-val grn">$892</div><div class="kpi-sub grn">Top 30% PA herds</div></div>
+    <div class="kpi"><div class="kpi-label">DPR genetic trend</div><div class="kpi-val grn">+0.8 pts</div><div class="kpi-sub grn">3-year improvement</div></div>
+    <div class="kpi"><div class="kpi-label">Milk EBV (lbs)</div><div class="kpi-val grn">+1,840</div><div class="kpi-sub grn">Above breed avg</div></div>
+  </div>
+  <div class="card-full">
+    <div class="ctitle">Genetic trend — rolling 5-year daughter performance</div>
+    <div style="position:relative;height:185px"><canvas id="genChart" role="img" aria-label="Multi-line chart showing TPI improving from 2620 to 2840, Net Merit from 720 to 892 dollars, and DPR daughter pregnancy rate improving by 0.8 points over 5 years">TPI: 2620 to 2840. Net Merit: $720 to $892. DPR improving 0.8 pts.</canvas></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="ctitle">Sire selection audit — current ABS bulls</div>
+      <table class="tbl">
+        <tr><th>Bull</th><th>TPI</th><th>DPR</th><th>PL</th><th>SCS</th></tr>
+        <tr><td>ABS Topaz</td><td class="grn">3,120</td><td class="grn">+2.1</td><td>+5.2</td><td>2.72</td></tr>
+        <tr><td>ABS Regal-P</td><td class="grn">2,980</td><td class="grn">+1.8</td><td>+4.8</td><td>2.68</td></tr>
+        <tr><td>ABS Drake</td><td class="amb">2,640</td><td class="red">−0.3</td><td>+3.1</td><td>2.91</td></tr>
+        <tr><td>Outside bull</td><td class="red">2,310</td><td class="red">−1.2</td><td>+2.4</td><td>3.04</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ctitle">Genetic evaluation insight</div>
+      <div class="sop sop-blu"><div class="sop-b">Fertility genetics — DPR, CCR, HCR</div>Current sire stack averages DPR +1.2. Replacing ABS Drake and the outside bull (both negative DPR) with ABS high-fertility sires projects a +0.6 DPR improvement in daughters over 2 generations — adding approximately 0.4 percentage points to herd pregnancy rate.</div>
+      <div class="sop sop-amb" style="margin-top:8px"><div class="sop-b">Heat tolerance sire selection</div>For June–Sept breedings, prioritise ABS sires with Heat Tolerance Index (HTI>100) — daughter conception rate under high THI conditions 3–5% above herd average. Validated against UConn/CDCB national evaluation data.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW 4: Technical service ROI -->
+<div id="v4" class="view">
+  <div style="margin-bottom:10px">
+    <label class="sl-label">Herd size:</label>
+    <div class="sl-row"><input type="range" id="herdSl" min="500" max="5000" value="1850" step="50" oninput="calcROI()" style="flex:1;max-width:300px"><span class="sl-val" id="herdV">1,850</span></div>
+    <label class="sl-label">Milk price ($/cwt):</label>
+    <div class="sl-row"><input type="range" id="milkSl" min="16" max="30" value="23" step="0.5" oninput="calcROI()" style="flex:1;max-width:300px"><span class="sl-val" id="milkV">$23.00</span></div>
+    <label class="sl-label">Current days open:</label>
+    <div class="sl-row"><input type="range" id="doSl" min="110" max="200" value="138" step="5" oninput="calcROI()" style="flex:1;max-width:300px"><span class="sl-val" id="doV">138 days</span></div>
+  </div>
+  <div class="roi-grid">
+    <div class="roi-card roi-grn"><div class="roi-label">Days open savings</div><div class="roi-val" id="doSave">$272,350</div><div class="roi-sub neu" id="doSaveSub">23 days × $6.40 × 1,850</div></div>
+    <div class="roi-card roi-grn"><div class="roi-label">Genetic improvement value</div><div class="roi-val" id="genVal">$131,350</div><div class="roi-sub neu">+1 DPR pt × 1,850 cows</div></div>
+    <div class="roi-card roi-grn"><div class="roi-label">Heat stress recovery</div><div class="roi-val" id="heatVal">$94,350</div><div class="roi-sub neu">+8% summer CR</div></div>
+    <div class="roi-card" style="background:#003366;border-color:#003366;color:#fff"><div class="roi-label" style="color:rgba(255,255,255,0.7)">Total annual impact</div><div class="roi-val" style="color:#fff;font-size:22px" id="totalVal">$498,050</div><div class="roi-sub" style="color:rgba(255,255,255,0.7)" id="perCowVal">$269 / cow</div></div>
+  </div>
+  <div class="card-full" style="margin-top:10px">
+    <div class="ctitle">Technical service impact — before vs. after implementation</div>
+    <div style="position:relative;height:160px"><canvas id="roiChart" role="img" aria-label="Grouped bar chart comparing key metrics before and after ABS technical service implementation: pregnancy rate 21% to 24.8%, conception rate 28% to 38%, days open 138 to 115, heat stress CR drop from 14% to 6%">Before/after TS implementation: PR up 3.8%, CR up 10%, days open down 23, summer CR drop halved.</canvas></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">Visit activity log — Q3 2026</div>
+    <table class="tbl">
+      <tr><th>Date</th><th>Visit type</th><th>Findings</th><th>Follow-up</th></tr>
+      <tr><td>Jul 8</td><td>Repro audit</td><td>Repeat breeder issue identified</td><td>Ovsynch protocol change</td></tr>
+      <tr><td>Jul 22</td><td>Heat abatement</td><td>2 fan banks offline</td><td>Maintenance referral</td></tr>
+      <tr><td>Aug 5</td><td>Staff training</td><td>Tail chalk technique</td><td>Activity monitor demo</td></tr>
+      <tr><td>Aug 19</td><td>Performance review</td><td>CR improving +4%</td><td>Sire selection update</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
+<script>
+const gc='rgba(0,0,0,0.07)',tc='#888780';
+let v2b=false,v3b=false,v4b=false;
+let reprC,heatC,genC,roiC;
+
+const months=['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+
+function showView(id,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('active');
+  if(id==='v2'&&!v2b){buildHeat();v2b=true;}
+  if(id==='v3'&&!v3b){buildGen();v3b=true;}
+  if(id==='v4'&&!v4b){buildROI();calcROI();v4b=true;}
+}
+
+function buildRepr(){
+  reprC=new Chart(document.getElementById('reprChart'),{
+    type:'line',
+    data:{labels:months,datasets:[
+      {label:'21-day PR %',data:[21,21.5,22,22.8,23.1,23.4,23.8,24.1,24.4,24.6,24.7,24.8],borderColor:'#1b7a3e',borderWidth:2.5,pointRadius:3,fill:false,yAxisID:'y1'},
+      {label:'Conception rate %',data:[34,35,36,35,34,33,32,30,28,30,32,32],borderColor:'#2a78d6',borderWidth:2,borderDash:[4,3],pointRadius:2,fill:false,yAxisID:'y1'},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{size:10},boxWidth:10}},
+        annotation:{annotations:{
+          bench:{type:'line',scaleID:'y1',value:38,borderColor:'#1b7a3e',borderWidth:1,borderDash:[5,4],label:{display:true,content:'ABS CR benchmark 38%',font:{size:9},position:'end',color:'#1b7a3e',backgroundColor:'transparent'}}
+        }}},
+      scales:{x:{grid:{color:gc},ticks:{color:tc,font:{size:9}}},y1:{grid:{color:gc},ticks:{color:tc,font:{size:9}},min:15,max:42,title:{display:true,text:'%',color:tc,font:{size:9}}}}}});
+}
+
+function buildHeat(){
+  const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const thi=[52,55,58,62,68,75,82,80,74,65,58,53];
+  const cr=[38,38,37,36,35,30,24,25,28,34,37,38];
+  heatC=new Chart(document.getElementById('heatChart'),{
+    type:'line',
+    data:{labels:mo,datasets:[
+      {label:'Barn THI',data:thi,borderColor:'#e34948',borderWidth:2.5,pointRadius:3,fill:false,yAxisID:'y1'},
+      {label:'Conception rate %',data:cr,borderColor:'#2a78d6',borderWidth:2,borderDash:[4,3],pointRadius:3,fill:false,yAxisID:'y2'},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{size:10},boxWidth:10}},
+        annotation:{annotations:{
+          t68:{type:'line',scaleID:'y1',value:68,borderColor:'#e34948',borderWidth:1,borderDash:[5,4],label:{display:true,content:'Heat stress threshold THI 68',font:{size:9},position:'start',color:'#e34948',backgroundColor:'transparent'}}
+        }}},
+      scales:{
+        x:{grid:{color:gc},ticks:{color:tc,font:{size:9}}},
+        y1:{grid:{color:gc},ticks:{color:tc,font:{size:9}},min:45,max:90,title:{display:true,text:'THI',color:tc,font:{size:9}},position:'left'},
+        y2:{grid:{display:false},ticks:{color:tc,font:{size:9}},min:15,max:45,title:{display:true,text:'CR %',color:tc,font:{size:9}},position:'right'}
+      }}});
+}
+
+function buildGen(){
+  const yrs=['2021','2022','2023','2024','2025','2026'];
+  genC=new Chart(document.getElementById('genChart'),{
+    type:'line',
+    data:{labels:yrs,datasets:[
+      {label:'TPI',data:[2620,2680,2720,2770,2810,2840],borderColor:'#2a78d6',borderWidth:2.5,pointRadius:3,fill:false,yAxisID:'y1'},
+      {label:'Net Merit $',data:[720,760,800,840,872,892],borderColor:'#1b7a3e',borderWidth:2,borderDash:[4,3],pointRadius:3,fill:false,yAxisID:'y2'},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{size:10},boxWidth:10}}},
+      scales:{
+        x:{grid:{color:gc},ticks:{color:tc,font:{size:9}}},
+        y1:{grid:{color:gc},ticks:{color:tc,font:{size:9}},min:2500,max:2950,title:{display:true,text:'TPI',color:tc,font:{size:9}},position:'left'},
+        y2:{grid:{display:false},ticks:{color:tc,font:{size:9},callback:v=>'$'+v},min:650,max:950,title:{display:true,text:'Net Merit $',color:tc,font:{size:9}},position:'right'}
+      }}});
+}
+
+function buildROI(){
+  roiC=new Chart(document.getElementById('roiChart'),{
+    type:'bar',
+    data:{labels:['21-day PR %','Conception rate %','Days open','Summer CR drop %'],
+      datasets:[
+        {label:'Before TS',data:[21,28,138,14],backgroundColor:'rgba(227,73,72,0.7)',borderRadius:3},
+        {label:'After TS',data:[24.8,38,115,6],backgroundColor:'rgba(27,122,62,0.7)',borderRadius:3},
+      ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{size:10},boxWidth:10}}},
+      scales:{x:{grid:{display:false},ticks:{color:tc,font:{size:9}}},y:{grid:{color:gc},ticks:{color:tc,font:{size:9}}}}}});
+}
+
+function calcROI(){
+  const herd=parseInt(document.getElementById('herdSl').value);
+  const milk=parseFloat(document.getElementById('milkSl').value);
+  const doVal=parseInt(document.getElementById('doSl').value);
+  document.getElementById('herdV').textContent=herd.toLocaleString();
+  document.getElementById('milkV').textContent='$'+milk.toFixed(2);
+  document.getElementById('doV').textContent=doVal+' days';
+  const daysGap=Math.max(0,doVal-115);
+  const doSave=Math.round(herd*daysGap*6.4);
+  const genVal=Math.round(herd*71);
+  const heatVal=Math.round(herd*51);
+  const total=doSave+genVal+heatVal;
+  document.getElementById('doSave').textContent='$'+doSave.toLocaleString();
+  document.getElementById('doSaveSub').textContent=daysGap+' days × $6.40 × '+herd.toLocaleString();
+  document.getElementById('genVal').textContent='$'+genVal.toLocaleString();
+  document.getElementById('heatVal').textContent='$'+heatVal.toLocaleString();
+  document.getElementById('totalVal').textContent='$'+total.toLocaleString();
+  document.getElementById('perCowVal').textContent='$'+Math.round(total/herd)+' / cow';
+}
+
+window.addEventListener('load',()=>{buildRepr();});
+</script>
